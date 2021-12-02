@@ -1,0 +1,12 @@
+@startuml
+skinparam class {
+	BackgroundColor White
+	ArrowColor Black
+	BorderColor Black
+}
+class "Курьер" as P {
+ Транспорт
+Доставить Заказ (Время ождиания доставки в приложении, Зазказ сделанный пользователем и заказ выданный рестораном)
+}
+hide circle
+@enduml

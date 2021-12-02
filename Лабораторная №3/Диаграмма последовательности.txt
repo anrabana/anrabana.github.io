@@ -1,0 +1,18 @@
+@startuml
+autonumber
+
+actor "Менеджер" as user
+boundary "ПО приложения" as app
+control "База данных" as ajax
+
+
+user -> app
+app -> ajax: Запись данных
+activate ajax
+
+
+ajax --> app: Чтение данных
+deactivate ajax
+
+app --> user
+@enduml
