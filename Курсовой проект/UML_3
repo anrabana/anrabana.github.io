@@ -1,0 +1,42 @@
+@startuml
+
+actor "Пользователь" as user
+participant "Приложения" as application
+database "База данных" as db
+
+activate user
+activate application
+
+user -> application: Открытие приложения
+application -> user: Интерфейс начальной страницы
+
+application-> db: Получение данных о пользователе
+activate db
+db-> application: 
+deactivate db
+
+user -> application: Выбор с помощью пользовательского интерфейса процесса генерации изображения 
+application -> user: Запрос исходного изображения для генерации нового
+user -> application: Выбор похожего исходного ихображения
+application-> db: Получение исходного изображения из БД
+activate db
+db-> application:
+deactivate db
+
+application -> user: Запрос целевых данных для генерации
+user -> application: Выбор предпочитаемого типа генерации изображения
+application-> db: Получение информации о выбранном типе генерации из БД
+activate db
+db-> application:
+deactivate db
+
+application -> user: Предоставление готового изображения
+user -> application: Одобрение готового изображения
+application-> db: Сохранение изображения в БД
+activate db
+db-> application:
+deactivate db
+
+application -> user: Уведомление о том что изображение успешно сгенерированно
+
+@enduml
