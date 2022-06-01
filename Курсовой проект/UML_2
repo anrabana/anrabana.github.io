@@ -1,0 +1,46 @@
+@startuml
+
+skinparam class {
+	BackgroundColor White
+}
+hide circle
+hide methods
+
+
+class Image{
+   image_id : int
+   image_title : varchar
+   image_description : varchar
+   image_color : varchar
+   image_createDate : date
+   image_updateDate : date
+   image_flag : varchar
+   image_photoFilter : varchar
+}
+
+
+class User{
+   user_id : int
+   user_name : varchar 
+   user_nikname : varchar 
+   user_country : varchar 
+   user_email : varchar 
+}
+
+class SortedImage{
+   sortedImage_id: int
+   user_nikname : varchar 
+   user_country : varchar 
+   image_color : varchar
+   image_createDate : date
+   image_updateDate : date
+   image_flag : varchar
+   image_photoFilter : varchar
+}
+
+
+User--> SortedImage
+Image--> SortedImage
+
+
+@enduml
