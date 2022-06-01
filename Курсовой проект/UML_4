@@ -1,0 +1,23 @@
+@startuml
+
+skinparam component {
+BackgroundColor White
+}
+
+skinparam interface {
+BackgroundColor White
+}
+
+component [Сервер] as DB
+component [Пользователь] as User
+component [Программный модуль] as Server
+
+() "SQL" as L1
+() "UI" as L2
+
+User - L2
+L2 - Server
+Server - L1
+L1 - DB
+
+@enduml
